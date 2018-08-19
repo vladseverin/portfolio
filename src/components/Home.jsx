@@ -3,6 +3,8 @@ import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import ArrowButton from './ArrowButton';
 
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+
 const styles = {
   rootHome: {
     backgroundColor: '#141c28',
@@ -33,6 +35,9 @@ const styles = {
     '70%': { color: '#04c988' },
     '100%': { color: '#E31B6D' },
   },
+  textClick: {
+    margin: '0 0 10px 0',
+  }
 };
 
 class Home extends Component {
@@ -44,7 +49,20 @@ class Home extends Component {
           Hello, I'm <span className={classes.highlight}>Severin Vladislav</span>. <br/>
           I'm frontend developer.
         </div>
-        <ArrowButton />
+
+        <div className={classes.textClick}>
+          Click here!
+        </div>
+        
+        <Link 
+          activeClass="active"
+          to="about"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
+          <ArrowButton />
+        </Link >
       </section>
     );
   }
