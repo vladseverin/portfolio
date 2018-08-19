@@ -21,7 +21,7 @@ const styles = {
   text: {
     fontSize: '32pt',
     textAlign: 'center',
-    marginBottom: '2rem',
+    marginBottom: '20px',
   },
   highlight: {
     color: '#04C2C9',

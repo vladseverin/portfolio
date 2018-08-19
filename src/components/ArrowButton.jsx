@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const styles = {
   rootButton: {
-    fontSize:' 2.4rem',
+    fontSize: '2.4rem',
     border: '0.3rem solid #fff',
-    padding:' 0 1rem',
+    padding: '3px 10px',
     transition: 'all 0.3s ease-in-out 0.1s',
     cursor: 'pointer',
     "&:hover": {
       backgroundColor: "#04C2C9",
-      border: '0.3rem solid #04C2C9',
+      border: '3px solid #04C2C9',
     },
     "&:hover > $icon": {
       transform: 'rotate(180deg) translateY(-2px)',
@@ -21,7 +21,7 @@ const styles = {
     transition: 'all 0.3s ease-in-out',
   },
   text: {
-    margin: '0 0 1rem 0',
+    margin: '0 0 10px 0',
   }
 }
 
