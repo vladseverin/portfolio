@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import ArrowButton from './ArrowButton';
-
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 const styles = {
   rootHome: {
@@ -41,10 +40,20 @@ const styles = {
 };
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.sectionHome = React.createRef();
+  }
+
+  componentDidMount() {
+    const { getHeightHome } = this.props;
+    getHeightHome(this.sectionHome.current.clientHeight);
+  }
+
   render() {
     const { classes } = this.props;
     return (
-      <section className={classNames(classes.rootHome, classes.flex)}>
+      <section ref={this.sectionHome} id="home" className={classNames(classes.rootHome, classes.flex)}>
         <div className={classes.text}>
           Hello, I'm <span className={classes.highlight}>Severin Vladislav</span>. <br/>
           I'm frontend developer.

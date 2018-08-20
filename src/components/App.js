@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
-import * as Scroll from 'react-scroll';
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 import Home from './Home';
 import About from './About';
@@ -14,19 +12,27 @@ import Footer from './Footer';
 library.add(faAngleUp);
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      homeHeight: 0
+    }
+  }
+
+  getHeightHome = (height) => {
+    this.setState({
+      homeHeight: height
+    });
+  }
+
   render() {
+    const { homeHeight } = this.state;
     return (
       <div className="App">
-        <Home />
-
-        <Element name="about">
-          <About />
-        </Element>
-
+        <Home getHeightHome={this.getHeightHome}/>
+        <About homeHeight={homeHeight}/>
         <Projects />
-
         <Contact />
-
         <Footer />
       </div>
     );
