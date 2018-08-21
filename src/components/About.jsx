@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { Element } from 'react-scroll';
+import ProgressBar from './ProgressBar';
+import { infoProgress } from '../data';
 
-const style = {
+const styles = {
   flex: {
     display: 'flex',
     flexDirection: 'column',
@@ -18,7 +20,6 @@ const style = {
     boxSizing: 'border-box',
   },
   rootAbout: {
-    height: '100vh',
     padding: '80px 0 100px 0',
   },
   title: {
@@ -32,6 +33,13 @@ const style = {
     height: '4px',
     background: ' #444649',
     opacity: 0,
+  },
+  sectionProgress: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    flexFlow: 'column',
   },
   show: {
     animation: 'slideInLeft 0.75s ease both',
@@ -85,6 +93,7 @@ class About extends Component {
   render() {
     const { classes } = this.props;
     const { visibleTitle, visibleUnderLine } = this.state;
+
     return (
       <Element name="about">
         <section className={classes.rootAbout} >
@@ -95,6 +104,16 @@ class About extends Component {
               ABOUT
             </h2>
             <div className={classNames(classes.underLine, visibleUnderLine ? classes.show : null)}></div>
+
+            <div className={classes.sectionProgress}>
+              {infoProgress.map((item, id) => (
+                <ProgressBar 
+                  key={id}
+                  tool={item.tool} 
+                  occupied={item.percent}
+                />
+              ))}
+            </div>
           </div>
 
         </section>
@@ -103,4 +122,4 @@ class About extends Component {
   }
 }
 
-export default injectSheet(style)(About);
+export default injectSheet(styles)(About);
