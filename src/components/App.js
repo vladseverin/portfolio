@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
-
-
 import Home from './Home';
 import About from './About';
 import Projects from './Projects';
