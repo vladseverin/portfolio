@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { Element } from 'react-scroll';
-import ProgressBar from './ProgressBar';
-import { infoProgress } from '../data';
+import ProgressBarList from './ProgressBarList';
 
 import AboutMark from './AboutMark';
 
@@ -35,13 +34,6 @@ const styles = {
     height: '4px',
     background: ' #444649',
     opacity: 0,
-  },
-  sectionProgress: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    flexFlow: 'column',
   },
   show: {
     animation: 'slideInLeft 0.75s ease both',
@@ -99,7 +91,6 @@ class About extends Component {
     return (
       <Element name="about">
         <section className={classes.rootAbout} >
-
           <div className={classNames(classes.container, classes.flex)} >
             <h2 
               className={classNames(classes.title, visibleTitle ? classes.show : null)}>
@@ -109,17 +100,8 @@ class About extends Component {
 
             <AboutMark />
 
-            {/* <div className={classes.sectionProgress}>
-              {infoProgress.map((item, id) => (
-                <ProgressBar 
-                  key={id}
-                  tool={item.tool} 
-                  occupied={item.percent}
-                />
-              ))}
-            </div> */}
+            <ProgressBarList />
           </div>
-
         </section>
       </Element>
     );

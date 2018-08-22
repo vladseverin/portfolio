@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Icon from './Icon';
 
 const styles = {
@@ -17,7 +16,7 @@ const styles = {
   },
   container: {
     maxWidth: '1200px',
-    margin: '0 auto',
+    margin: '0 auto 80px auto',
     padding: '0 10px',
     width: '100%',
     boxSizing: 'border-box',
@@ -25,9 +24,9 @@ const styles = {
   combMark: {
     display: 'flex',
     flexFlow: 'row nowrap',
-    justifyContent: 'space-around',
     alignItems: 'center',
     width: '100%',
+    margin: '0 auto',
   },
   markWrap: {
     display: 'flex',
@@ -35,9 +34,13 @@ const styles = {
     alignItems: 'center',
     flexFlow: 'column',
     padding: '0 10px',
+    flex: '1 0 50%',
   },
   represent: {
     textAlign: 'center',
+  },
+  description: {
+    maxWidth: '260px',
   },
   '@media screen and (max-width: 960px)': {
     flex: {
@@ -63,7 +66,7 @@ class AboutMark extends Component {
               <div>
                 Responsive
               </div>
-              <div>
+              <div className={classes.description}>
                 My layouts will work on any device, big or small.
               </div>
             </div>
@@ -77,7 +80,7 @@ class AboutMark extends Component {
               <div>
                 Dynamic
               </div>
-              <div>
+              <div className={classes.description}>
                 Websites don't have to be static, I love making pages come to life.
               </div>
             </div>
@@ -93,7 +96,7 @@ class AboutMark extends Component {
               <div>
                 Intuitive
               </div>
-              <div>
+              <div className={classes.description}>
                 Strong preference for easy to use, intuitive UX/UI.
               </div>
             </div>
@@ -107,7 +110,7 @@ class AboutMark extends Component {
               <div>
                 Fast
               </div>
-              <div>
+              <div className={classes.description}>
                 Fast load times and lag free interaction, my highest priority
               </div>
             </div>
