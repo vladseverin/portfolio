@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { fab  } from '@fortawesome/free-brands-svg-icons';
+import { faAngleUp, faMobileAlt, faRocket, faLightbulb } from '@fortawesome/free-solid-svg-icons';
+
 import Home from './Home';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
 import Footer from './Footer';
 
-library.add(faAngleUp);
+library.add(fab, faAngleUp, faMobileAlt, faRocket, faLightbulb);
 
 class App extends Component {
   constructor(props) {

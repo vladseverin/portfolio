@@ -5,6 +5,8 @@ import { Element } from 'react-scroll';
 import ProgressBar from './ProgressBar';
 import { infoProgress } from '../data';
 
+import AboutMark from './AboutMark';
+
 const styles = {
   flex: {
     display: 'flex',
@@ -105,7 +107,9 @@ class About extends Component {
             </h2>
             <div className={classNames(classes.underLine, visibleUnderLine ? classes.show : null)}></div>
 
-            <div className={classes.sectionProgress}>
+            <AboutMark />
+
+            {/* <div className={classes.sectionProgress}>
               {infoProgress.map((item, id) => (
                 <ProgressBar 
                   key={id}
@@ -113,7 +117,7 @@ class About extends Component {
                   occupied={item.percent}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
 
         </section>
