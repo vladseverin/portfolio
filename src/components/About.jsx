@@ -49,12 +49,14 @@ const styles = {
       opacity: 1,
     }
   },
+
 }
 
 class About extends Component {
   state = {
     visibleTitle: false,
     visibleUnderLine: false,
+    visibleMark: false,
   }
 
   componentDidMount() {
@@ -67,26 +69,31 @@ class About extends Component {
 
   handleScroll = () => {
     const { homeHeight } = this.props;
-    const { visibleTitle, visibleUnderLine } = this.state;
+    const { visibleTitle, visibleUnderLine, visibleMark } = this.state;
 
     //declaration of showing title
     if (window.pageYOffset > (homeHeight / 2) && !visibleTitle) {
-      console.log(homeHeight);
       this.setState({ visibleTitle: true});
     }
 
     //declaration of showing underline
     if (window.pageYOffset > (homeHeight / 2 + 20) && !visibleUnderLine) {
-      console.log(homeHeight);
       setTimeout(() => {
         this.setState({ visibleUnderLine: true });
       }, 200);
+    }
+
+    //declaration of showing marks
+    if (window.pageYOffset > (homeHeight / 2 + 70) && !visibleMark) {
+      setTimeout(() => {
+        this.setState({ visibleMark: true });
+      }, 210);
     }
   }
 
   render() {
     const { classes } = this.props;
-    const { visibleTitle, visibleUnderLine } = this.state;
+    const { visibleTitle, visibleUnderLine, visibleMark } = this.state;
 
     return (
       <Element name="about">
@@ -98,7 +105,7 @@ class About extends Component {
             </h2>
             <div className={classNames(classes.underLine, visibleUnderLine ? classes.show : null)}></div>
 
-            <AboutMark />
+            <AboutMark visible={visibleMark}/>
 
             <ProgressBarList />
           </div>
