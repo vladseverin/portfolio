@@ -17,21 +17,22 @@ const styles = {
   },
   container: {
     maxWidth: '1200px',
-    margin: '0 auto 80px auto',
+    margin: '0 auto 75px auto',
     padding: '0 10px',
     width: '100%',
     boxSizing: 'border-box',
+    alignItems: 'flex-start',
   },
   combMark: {
     display: 'flex',
     flexFlow: 'row nowrap',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     width: '100%',
     margin: '0 auto',
   },
   markWrap: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     flexFlow: 'column',
     padding: '0 10px',
@@ -94,74 +95,71 @@ const styles = {
   },
 }
 
-class AboutMark extends Component {
-  render() {
-    const { classes, visible } = this.props;
-    const isVisible = visible ? classes.show : null;
-    return (
-      <div className={classNames(classes.flex, classes.container)}>
-        <div className={classes.combMark}>
-          <div className={classes.markWrap}>
-            <div className={classNames(classes.mark, isVisible)}>
-              <Icon name='mobile-alt' size='3x' />
-            </div>
-            <div className={classNames(classes.represent, isVisible)}>
-              <div className={classes.title}>
-                Responsive
-              </div>
-              <div className={classes.description}>
-                My layouts will work on any device, big or small.
-              </div>
-            </div>
+const AboutMark = ({ classes, visible }) => {
+  const isVisible = visible ? classes.show : null;
+  return (
+    <div className={classNames(classes.flex, classes.container)}>
+      <div className={classes.combMark}>
+        <div className={classes.markWrap}>
+          <div className={classNames(classes.mark, isVisible)}>
+            <Icon name='mobile-alt' size='3x' />
           </div>
-
-          <div className={classes.markWrap}>
-            <div className={classNames(classes.mark, isVisible)}>
-              <Icon name='rocket' size='3x' />
+          <div className={classNames(classes.represent, isVisible)}>
+            <div className={classes.title}>
+              Responsive
             </div>
-            <div className={classNames(classes.represent, isVisible)}>
-              <div className={classes.title}>
-                Dynamic
-              </div>
-              <div className={classes.description}>
-                Websites don't have to be static, I love making pages come to life.
-              </div>
+            <div className={classes.description}>
+              My layouts will work on any device, big or small.
             </div>
           </div>
         </div>
 
-        <div className={classes.combMark}>
-          <div className={classes.markWrap}>
-            <div className={classNames(classes.mark, isVisible)}>
-              <Icon name='lightbulb' size='3x' />
-            </div>
-            <div className={classNames(classes.represent, isVisible)}>
-              <div className={classes.title}>
-                Intuitive
-              </div>
-              <div className={classes.description}>
-                Strong preference for easy to use, intuitive UX/UI.
-              </div>
-            </div>
+        <div className={classes.markWrap}>
+          <div className={classNames(classes.mark, isVisible)}>
+            <Icon name='rocket' size='3x' />
           </div>
-
-          <div className={classes.markWrap}>
-            <div className={classNames(classes.mark, isVisible)}>
-              <Icon name={['fab', 'cloudscale']} size='3x' />
+          <div className={classNames(classes.represent, isVisible)}>
+            <div className={classes.title}>
+              Dynamic
             </div>
-            <div className={classNames(classes.represent, isVisible)}>
-              <div className={classes.title}>
-                Fast
-              </div>
-              <div className={classes.description}>
-                Fast load times and lag free interaction, my highest priority
-              </div>
+            <div className={classes.description}>
+              Websites don't have to be static, I love making pages come to life.
             </div>
           </div>
         </div>
       </div>
-    );
-  }
+
+      <div className={classes.combMark}>
+        <div className={classes.markWrap}>
+          <div className={classNames(classes.mark, isVisible)}>
+            <Icon name='lightbulb' size='3x' />
+          </div>
+          <div className={classNames(classes.represent, isVisible)}>
+            <div className={classes.title}>
+              Intuitive
+            </div>
+            <div className={classes.description}>
+              Strong preference for easy to use, intuitive UX/UI.
+            </div>
+          </div>
+        </div>
+
+        <div className={classes.markWrap}>
+          <div className={classNames(classes.mark, isVisible)}>
+            <Icon name={['fab', 'cloudscale']} size='3x' />
+          </div>
+          <div className={classNames(classes.represent, isVisible)}>
+            <div className={classes.title}>
+              Fast
+            </div>
+            <div className={classes.description}>
+              Fast load times and lag free interaction, my highest priority
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default injectSheet(styles)(AboutMark);
